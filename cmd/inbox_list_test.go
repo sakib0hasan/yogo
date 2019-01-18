@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/antham/yogo/inbox"
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
 func TestRenderInboxMailWithEmptyInbox(t *testing.T) {

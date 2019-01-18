@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 
 	"github.com/PuerkitoBio/goquery"
@@ -52,7 +53,12 @@ var fetchFromReader = func(r io.Reader) (*goquery.Document, error) {
 }
 
 var fetchURL = func(URL string) (*goquery.Document, error) {
-	doc, err := goquery.NewDocument(URL)
+	res, err := http.Get(URL)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	doc, err := goquery.NewDocumentFromReader(res.Body)
 
 	if err != nil {
 		return nil, err

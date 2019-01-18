@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/antham/yogo/inbox"
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
 // inboxDeleteCmd delete an email in inbox

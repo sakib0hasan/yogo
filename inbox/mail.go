@@ -52,7 +52,6 @@ func parseDate(s string) time.Time {
 	if len(matches) != 3 {
 		return time.Time{}
 	}
-
 	date, err := time.Parse("02/01/2006 15:04", fmt.Sprintf("%v %v", matches[1], matches[2]))
 
 	if err != nil {

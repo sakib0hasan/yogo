@@ -5,23 +5,17 @@ import (
 
 	"github.com/fatih/color"
 
-	"github.com/antham/yogo/inbox"
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
-func renderInboxMail(in *inbox.Inbox) {
+func RenderInboxMail(in *inbox.Inbox) []inbox.Mail {
 	if in.Count() == 0 {
 		info("Inbox is empty")
-
-		successExit()
 	}
-
-	for index, mail := range in.GetAll() {
-		output(fmt.Sprintf(" %s %s\n", color.GreenString(fmt.Sprintf("%d", index+1)), color.YellowString(mail.Title)))
-		output(fmt.Sprintf(" %s\n\n", color.CyanString(mail.SumUp)))
-	}
+	return in.GetAll()
 }
 
-func renderMail(mail *inbox.Mail) {
+func RenderMail(mail *inbox.Mail) {
 	output("---\n")
 	output(fmt.Sprintf("From  : %s <%s>\n", color.MagentaString(mail.Sender.Name), color.MagentaString(mail.Sender.Mail)))
 	output(fmt.Sprintf("Title : %s\n", color.YellowString(mail.Title)))

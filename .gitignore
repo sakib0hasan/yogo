@@ -1,3 +1,9 @@
 /build/
 /coverage.txt
 /vendor/*
+.idea/
+output/
+scripts/output/
+tmp/
+main.exe
+.vscode/

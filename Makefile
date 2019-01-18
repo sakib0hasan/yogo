@@ -19,5 +19,5 @@ test-all:
 	./test.sh
 
 test-package:
-	go test -race -cover -coverprofile=/tmp/yogo github.com/antham/yogo/$(pkg)
+	go test -race -cover -coverprofile=/tmp/yogo github.com/sakib0hasan/yogo/$(pkg)
 	go tool cover -html=/tmp/yogo

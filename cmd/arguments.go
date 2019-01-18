@@ -42,3 +42,5 @@ func checkOffset(count int, offset int) {
 		errorExit()
 	}
 }
+
+

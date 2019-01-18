@@ -5,7 +5,7 @@ Check yopmail mails and inboxes from command line.
 
 ## Install
 
-Download binaries here : [yogo](https://github.com/antham/yogo/releases/).
+Download binaries here : [yogo](https://github.com/sakib0hasan/yogo/releases/).
 
 A package is available in aur for archlinux.
 

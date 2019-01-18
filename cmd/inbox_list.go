@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/antham/yogo/inbox"
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
 // inboxListCmd get all emails in an inbox
@@ -21,7 +21,7 @@ var inboxListCmd = &cobra.Command{
 			errorExit()
 		}
 
-		renderInboxMail(in)
+		RenderInboxMail(in)
 	},
 }
 

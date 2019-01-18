@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/antham/yogo/inbox"
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
 // inboxShowCmd show full email
@@ -25,7 +25,7 @@ var inboxShowCmd = &cobra.Command{
 
 		in.Parse(offset - 1)
 		mail := in.Get(offset - 1)
-		renderMail(mail)
+		RenderMail(mail)
 	},
 }
 

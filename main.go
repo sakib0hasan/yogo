@@ -24,6 +24,7 @@ func List(identifier string, offset int) ([]inbox.Mail, error) {
 }
 
 func CheckEmail(Email string, PassContent string, StartTime string, EndTime string) (inbox.Mail, error) {
+	Email = strings.Replace(Email, "@yopmail.com", "", -1)
 	mails, emailErr := List(Email, 3)
 	if emailErr != nil {
 		return inbox.Mail{}, errors.New("inbox is empty")

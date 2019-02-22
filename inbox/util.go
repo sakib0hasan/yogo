@@ -63,7 +63,6 @@ var fetchURL = func(URL string) (*goquery.Document, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return doc, err
 }
 

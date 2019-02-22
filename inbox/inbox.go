@@ -11,8 +11,8 @@ import (
 )
 
 var inboxURLs = map[string]string{
-	"index": "http://www.yopmail.com/en/inbox.php?login=%v&p=%v&d=&ctrl=&scrl=&spam=true&v=2.8&r_c=&id=",
-	"flush": "http://www.yopmail.com/en/inbox.php?login=%v&p=1&d=all&ctrl=%v&v=2.8&r_c=&id=",
+	"index": "http://www.yopmail.com/en/inbox.php?login=%v&p=%v&d=&ctrl=&scrl=&spam=true&v=2.9&r_c=&id=",
+	"flush": "http://www.yopmail.com/en/inbox.php?login=%v&p=1&d=all&ctrl=%v&v=2.9&r_c=&id=",
 }
 
 var itemNumber = 15
@@ -75,7 +75,7 @@ func (i *Inbox) Parse(position int) error {
 
 	URL := fmt.Sprintf(mailURLs["get"], i.identifier, mail.ID)
 	loc, _ := time.LoadLocation("America/Los_Angeles")
-	now := time.Now().In(loc)
+	now := time.Now().In(loc).UTC()
 	nowString := lpad(strconv.Itoa(now.Hour()), "0", 2) + ":" + lpad(strconv.Itoa(now.Minute()), "0", 2)
 	r, err := buildReader("GET", URL, map[string]string{"Cookie": "localtime=" + nowString + ";" + fmt.Sprintf("compte=%s", i.identifier)}, nil)
 
@@ -130,7 +130,6 @@ func ParseInboxPages(identifier string, limit int) (*Inbox, error) {
 
 	for page := 1; page <= (limit/itemNumber)+1 && limit >= inbox.Count(); page++ {
 		URL := fmt.Sprintf(inboxURLs["index"], identifier, page)
-
 		doc, err := fetchURL(URL)
 
 		if err != nil {

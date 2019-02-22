@@ -24,6 +24,7 @@ func List(identifier string, offset int) ([]inbox.Mail, error) {
 }
 
 func CheckEmail(Email string, PassContent string, StartTime string, EndTime string) (inbox.Mail, error) {
+	Email = strings.Replace(Email, "@yopmail.com", "", -1)
 	mails, emailErr := List(Email, 3)
 	if emailErr != nil {
 		return inbox.Mail{}, errors.New("inbox is empty")
@@ -32,6 +33,16 @@ func CheckEmail(Email string, PassContent string, StartTime string, EndTime stri
 			layout := "2006-01-02 15:04:05 -0700 MST"
 			t1, err1 := time.Parse(layout, StartTime)
 			t2, err2 := time.Parse(layout, EndTime)
+
+			fmt.Println("t1", t1.String())
+			fmt.Println("t2", t2.String())
+			fmt.Println("mail", mail.Date.String())
+			fmt.Println(mail.Title)
+
+			if mail.Date.After(t1) && mail.Date.Before(t2) {
+				fmt.Println("TIME IN RANGE")
+			}
+
 			if err1 == nil && err2 == nil {
 				if mail.Date.After(t1) && mail.Date.Before(t2) {
 					if strings.Contains(strings.ToLower(mail.Title), strings.ToLower(PassContent)) || strings.Contains(strings.ToLower(mail.Body), strings.ToLower(PassContent)) {

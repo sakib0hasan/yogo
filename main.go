@@ -31,7 +31,7 @@ func CheckEmail(Email string, PassContent string, StartTime string, EndTime stri
 		return inbox.Mail{}, errors.New("inbox is empty")
 	} else {
 		for _, mail := range mails {
-			layout := "2006-01-02 15:04:05 -0800 PST"
+			layout := "2006-01-02 15:04:05 -0700 MST" //-0800 PST if not working
 			t1, err1 := time.Parse(layout, StartTime)
 			t2, err2 := time.Parse(layout, EndTime)
 

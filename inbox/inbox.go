@@ -11,7 +11,9 @@ import (
 )
 
 var inboxURLs = map[string]string{
-	"index": "http://www.yopmail.com/en/inbox.php?login=%v&p=%v&d=&ctrl=&scrl=&spam=true&v=2.9&r_c=&id=",
+	// Old index
+	// http://www.yopmail.com/en/inbox.php?login=%v&p=%v&d=&ctrl=&scrl=&spam=true&v=2.9&r_c=&id=
+	"index": "http://www.yopmail.com/en/inbox.php?login=%v&p=%v&d=&ctrl=&scrl=&spam=true&yf=005&yp=OAQNmAQRkZwZ1AmR5Awp3AQD&yj=IZwx5BQVkZmZ1AmL2ZGxjZQx&v=2.9&r_c=&id=",
 	"flush": "http://www.yopmail.com/en/inbox.php?login=%v&p=1&d=all&ctrl=%v&v=2.9&r_c=&id=",
 }
 

@@ -7,6 +7,7 @@ require (
 	github.com/davecgh/go-spew v1.1.0
 	github.com/fatih/color v1.0.0
 	github.com/inconshreveable/mousetrap v1.0.0
+	github.com/jarcoal/httpmock v1.0.4
 	github.com/jaytaylor/html2text v0.0.0-20160528172251-52d9b785554a
 	github.com/mattn/go-colorable v0.0.5
 	github.com/mattn/go-isatty v0.0.0-20151211000621-56b76bdf51f7

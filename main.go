@@ -3,9 +3,10 @@ package yogo
 import (
 	"errors"
 	"fmt"
-	"github.com/sakib0hasan/yogo/inbox"
 	"strings"
 	"time"
+
+	"github.com/sakib0hasan/yogo/inbox"
 )
 
 func List(identifier string, offset int) ([]inbox.Mail, error) {
@@ -46,7 +47,7 @@ func CheckEmail(Email string, PassContent string, StartTime string, EndTime stri
 
 			if err1 == nil && err2 == nil {
 				if mail.Date.After(t1) && mail.Date.Before(t2) {
-					for _, passContent := range PassContentParts{
+					for _, passContent := range PassContentParts {
 						if strings.Contains(strings.ToLower(mail.Title), strings.ToLower(passContent)) || strings.Contains(strings.ToLower(mail.Body), strings.ToLower(passContent)) {
 							return mail, nil
 						}
